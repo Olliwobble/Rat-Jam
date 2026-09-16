@@ -22,23 +22,23 @@ public class PlayerControllerAuto : MonoBehaviour
 
     private void FixedUpdate()
     {
-        Vector2 moveInput = Vector2.zero;
+        Vector3 moveInput = Vector3.zero;
 
         // Forward/backward
-        if (Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed) moveInput.y = 1f;
-        if (Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed) moveInput.y = -1f;
+        if (Keyboard.current.wKey.isPressed || Keyboard.current.upArrowKey.isPressed) moveInput.z = 1f;
+        if (Keyboard.current.sKey.isPressed || Keyboard.current.downArrowKey.isPressed) moveInput.z = -1f;
 
         // Left/right (rotation)
         if (Keyboard.current.aKey.isPressed || Keyboard.current.leftArrowKey.isPressed) moveInput.x = -1f;
         if (Keyboard.current.dKey.isPressed || Keyboard.current.rightArrowKey.isPressed) moveInput.x = 1f;
 
         // Move in facing direction 
-        Vector3 movement = transform.forward * moveInput.y * speed * Time.fixedDeltaTime;
+        Vector3 movement = transform.forward * moveInput.z * speed * Time.fixedDeltaTime;
         rb.MovePosition(rb.position + movement);
 
         // Y-axis rotation (invert when going backwards)
         float turnDirection = moveInput.x;
-        if (moveInput.y < 0)
+        if (moveInput.z < 0)
             turnDirection = -turnDirection;
 
         float turn = turnDirection * rotationSpeed * Time.fixedDeltaTime;
