@@ -14,6 +14,7 @@ public class PlayerController : MonoBehaviour
 
     private Rigidbody rb;
     public float jumpForce = 5.0f;
+    public bool isOnGround = true;
 
     private void Start()
     {
@@ -23,11 +24,18 @@ public class PlayerController : MonoBehaviour
 
     private void Update()
     {
-        if (Keyboard.current.spaceKey.wasPressedThisFrame)
+        if (Keyboard.current.spaceKey.wasPressedThisFrame && isOnGround)
         {
             rb.AddForce(Vector3.up * jumpForce, ForceMode.VelocityChange);
+            isOnGround = false;
+
         }
     }
+    private void OnCollisionEnter(Collision collision)
+    {
+        isOnGround = true;
+    }
+
 
     private void FixedUpdate()
     {
