@@ -1,0 +1,18 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!114 &11400000
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 0}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b110faf61c226704aa6a7e9ca8a80bcd, type: 3}
+  m_Name: Sword
+  m_EditorClassIdentifier: Assembly-CSharp::Item
+  id: Sword
+  description: Rat Sword
+  icon: {fileID: -4229514574493318159, guid: 62b6442fdcc207e40be1c57c1ab175e4, type: 3}
+  prefab: {fileID: 6299881999375359198, guid: ba2c4e9162da921439f3ad4c7e8faa9b, type: 3}
