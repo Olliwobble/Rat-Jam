@@ -14,7 +14,7 @@ GameObject:
   - component: {fileID: -9180536668146118843}
   m_Layer: 0
   m_Name: Dropped Item Prefab
-  m_TagString: Droppeditem
+  m_TagString: DroppedItem
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -85,5 +85,5 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec5b7c38825ddc499ae7e05c49c7fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rotator
-  randomInit: 0
-  speed: 0
+  randomInit: 1
+  speed: 180
