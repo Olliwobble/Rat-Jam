@@ -626,6 +626,7 @@ GameObject:
   - component: {fileID: 170754195}
   - component: {fileID: 170754194}
   - component: {fileID: 170754199}
+  - component: {fileID: 170754202}
   - component: {fileID: 170754200}
   - component: {fileID: 170754201}
   m_Layer: 0
@@ -754,7 +755,7 @@ Rigidbody:
   m_ImplicitTensor: 1
   m_UseGravity: 1
   m_IsKinematic: 0
-  m_Interpolate: 0
+  m_Interpolate: 1
   m_Constraints: 80
   m_CollisionDetection: 0
 --- !u!114 &170754200
@@ -793,6 +794,88 @@ MonoBehaviour:
   inventory:
     m_Keys: []
     m_Values: []
+--- !u!114 &170754202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170754193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 62899f850307741f2a39c98a8b639597, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Unity.InputSystem::UnityEngine.InputSystem.PlayerInput
+  m_Actions: {fileID: -944628639613478452, guid: 49f74c6bfacda1a41883d7e58661dd37, type: 3}
+  m_NotificationBehavior: 2
+  m_UIInputModule: {fileID: 0}
+  m_DeviceLostEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_DeviceRegainedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ControlsChangedEvent:
+    m_PersistentCalls:
+      m_Calls: []
+  m_ActionEvents:
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ba944f96-f610-4cd8-8ac9-ee1c51370af7
+    m_ActionName: 'Player/Move[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8be91e7d-e1e7-4566-8113-7e17e8b67315
+    m_ActionName: 'Player/Look[/Mouse/delta,/Pen/delta]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 47ce19df-b4f9-4357-8651-bd0fa7df6ff5
+    m_ActionName: 'Player/Fire[/Mouse/leftButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: c11d7f02-23cf-4054-825d-e022f37a7e98
+    m_ActionName: 'UI/Navigate[/Keyboard/w,/Keyboard/upArrow,/Keyboard/s,/Keyboard/downArrow,/Keyboard/a,/Keyboard/leftArrow,/Keyboard/d,/Keyboard/rightArrow]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2d402fc6-1a69-4813-a84d-9c4493946477
+    m_ActionName: 'UI/Submit[/Keyboard/enter]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 4ce38784-2fc6-4771-b1c6-32a21acd276b
+    m_ActionName: 'UI/Cancel[/Keyboard/escape]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: ab98f154-53a4-4d15-8eec-b9dba4dbf82d
+    m_ActionName: 'UI/Point[/Mouse/position,/Pen/position]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 2386a88d-3cbb-4fcb-82bb-a299af20f8cf
+    m_ActionName: 'UI/Click[/Mouse/leftButton,/Pen/tip]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a84ac1be-2071-4cfe-a533-2a9535dcae7f
+    m_ActionName: 'UI/ScrollWheel[/Mouse/scroll]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: b73e609e-c4d9-4a6f-a18f-535a74f95016
+    m_ActionName: 'UI/MiddleClick[/Mouse/middleButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: a5f71ad6-0b4f-49a4-acc5-ff63eea6224a
+    m_ActionName: 'UI/RightClick[/Mouse/rightButton]'
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 8d598267-9f5d-47ad-9631-70c2cf36ae2a
+    m_ActionName: UI/TrackedDevicePosition
+  - m_PersistentCalls:
+      m_Calls: []
+    m_ActionId: 360454a0-32d7-439b-821e-91476464a24f
+    m_ActionName: UI/TrackedDeviceOrientation
+  m_NeverAutoSwitchControlSchemes: 0
+  m_DefaultControlScheme: 
+  m_DefaultActionMap: Player
+  m_SplitScreenIndex: -1
+  m_Camera: {fileID: 330585545}
 --- !u!1 &174768017 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -5871589531588065491, guid: 95538d9f5ba590c4e9f00c34bb7f712d, type: 3}
@@ -895,9 +978,9 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingBucketNormalizedSize: 0
-  m_VertexColorAlwaysGammaSpace: 0
+  m_VertexColorAlwaysGammaSpace: 1
   m_UseReflectionProbes: 0
-  m_AdditionalShaderChannelsFlag: 0
+  m_AdditionalShaderChannelsFlag: 1
   m_UpdateRectTransformForStandalone: 0
   m_SortingLayerID: 0
   m_SortingOrder: 0
@@ -1587,7 +1670,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: bec5b7c38825ddc499ae7e05c49c7fee, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::Rotator
-  randomInit: 0
+  randomInit: 1
   speed: 180
 --- !u!1 &382351089 stripped
 GameObject:
@@ -1963,7 +2046,7 @@ GameObject:
   - component: {fileID: 471643277}
   - component: {fileID: 471643276}
   - component: {fileID: 471643275}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Inventory Scroll View
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -2017,15 +2100,15 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1aa08ab6e0800fa44ae55d278d1423e3, type: 3}
   m_Name: 
   m_EditorClassIdentifier: UnityEngine.UI::UnityEngine.UI.ScrollRect
-  m_Content: {fileID: 0}
+  m_Content: {fileID: 1717919001}
   m_Horizontal: 1
-  m_Vertical: 1
+  m_Vertical: 0
   m_MovementType: 1
   m_Elasticity: 0.1
   m_Inertia: 1
   m_DecelerationRate: 0.135
   m_ScrollSensitivity: 1
-  m_Viewport: {fileID: 0}
+  m_Viewport: {fileID: 970881037}
   m_HorizontalScrollbar: {fileID: 0}
   m_VerticalScrollbar: {fileID: 0}
   m_HorizontalScrollbarVisibility: 0
@@ -2056,7 +2139,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls: []
   m_Sprite: {fileID: 739905185230883310, guid: e443a41d5007b2745ab0a5be6875353e, type: 3}
-  m_Type: 1
+  m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
   m_FillMethod: 4
@@ -10245,7 +10328,7 @@ GameObject:
   - component: {fileID: 970881040}
   - component: {fileID: 970881039}
   - component: {fileID: 970881038}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Viewport
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12397,7 +12480,7 @@ PrefabInstance:
     m_Modifications:
     - target: {fileID: 2074592554000215706, guid: 20f4c17bf39b0b747a4c266148650ba2, type: 3}
       propertyPath: m_Name
-      value: Dropped item Prefab
+      value: Dropped Item Prefab
       objectReference: {fileID: 0}
     - target: {fileID: 2074592554000215706, guid: 20f4c17bf39b0b747a4c266148650ba2, type: 3}
       propertyPath: m_TagString
@@ -12455,7 +12538,8 @@ PrefabInstance:
       propertyPath: m_LocalEulerAnglesHint.z
       value: 0
       objectReference: {fileID: 0}
-    m_RemovedComponents: []
+    m_RemovedComponents:
+    - {fileID: -9180536668146118843, guid: 20f4c17bf39b0b747a4c266148650ba2, type: 3}
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
     m_AddedComponents:
@@ -12526,7 +12610,7 @@ GameObject:
   - component: {fileID: 1717919001}
   - component: {fileID: 1717919003}
   - component: {fileID: 1717919002}
-  m_Layer: 0
+  m_Layer: 5
   m_Name: Content
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -12549,7 +12633,7 @@ RectTransform:
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 1}
-  m_AnchoredPosition: {x: 50, y: 0}
+  m_AnchoredPosition: {x: 49.99986, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0.5, y: 0.5}
 --- !u!114 &1717919002
