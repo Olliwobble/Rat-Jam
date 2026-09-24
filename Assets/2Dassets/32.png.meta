@@ -1,10 +1,10 @@
 fileFormatVersion: 2
-guid: 62b6442fdcc207e40be1c57c1ab175e4
+guid: 7682b9bffeafbdf45bcc63b3ad3af388
 TextureImporter:
   internalIDToNameTable:
   - first:
-      213: -4229514574493318159
-    second: Inventory_Sword_0
+      213: 5272401415994956661
+    second: 32_0
   externalObjects: {}
   serializedVersion: 13
   mipmaps:
@@ -37,7 +37,7 @@ TextureImporter:
   maxTextureSize: 2048
   textureSettings:
     serializedVersion: 2
-    filterMode: 1
+    filterMode: 2
     aniso: 1
     mipBias: 0
     wrapU: 1
@@ -78,8 +78,8 @@ TextureImporter:
     resizeAlgorithm: 0
     textureFormat: -1
     textureCompression: 1
-    compressionQuality: 50
-    crunchedCompression: 0
+    compressionQuality: 100
+    crunchedCompression: 1
     allowsAlphaSplitting: 0
     overridden: 0
     ignorePlatformSupport: 0
@@ -115,13 +115,13 @@ TextureImporter:
     serializedVersion: 2
     sprites:
     - serializedVersion: 2
-      name: Inventory_Sword_0
+      name: 32_0
       rect:
         serializedVersion: 2
         x: 0
         y: 0
-        width: 654
-        height: 222
+        width: 512
+        height: 513
       alignment: 0
       pivot: {x: 0, y: 0}
       border: {x: 0, y: 0, z: 0, w: 0}
@@ -130,8 +130,8 @@ TextureImporter:
       physicsShape: []
       tessellationDetail: -1
       bones: []
-      spriteID: 1f30df647eebd45c0800000000000000
-      internalID: -4229514574493318159
+      spriteID: 57b55a947255b2940800000000000000
+      internalID: 5272401415994956661
       vertices: []
       indices: 
       edges: []
@@ -150,7 +150,7 @@ TextureImporter:
     spriteCustomMetadata:
       entries: []
     nameFileIdTable:
-      Inventory_Sword_0: -4229514574493318159
+      32_0: 5272401415994956661
   mipmapLimitGroupName: 
   pSDRemoveMatte: 0
   userData: 

@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   id: Sword
   description: Rat Sword
-  icon: {fileID: -4229514574493318159, guid: 62b6442fdcc207e40be1c57c1ab175e4, type: 3}
+  icon: {fileID: 21300000, guid: 62b6442fdcc207e40be1c57c1ab175e4, type: 3}
   prefab: {fileID: 6299881999375359198, guid: ba2c4e9162da921439f3ad4c7e8faa9b, type: 3}
