@@ -7,22 +7,22 @@ public class DroppedItem : MonoBehaviour
     [Header("Settings")]
     [SerializeField]
     bool autoStart;
-    
+
     [SerializeField]
     float enabledPickupDelay = 3.0f;
 
-    [Header("Settings")]
+    [Header("State")]
     public Item item;
     public bool pickedUp = false;
 
-    private void Start()
+    void Start()
     {
         if (autoStart && item != null)
         {
             Initialize(item);
         }
-
     }
+
     public void Initialize(Item item)
     {
         this.item = item;
@@ -30,10 +30,10 @@ public class DroppedItem : MonoBehaviour
         droppedItem.transform.SetLocalPositionAndRotation(Vector3.zero, Quaternion.identity);
         StartCoroutine(EnablePickup(enabledPickupDelay));
     }
-    IEnumerator EnablePickup(float delay)
+
+    IEnumerator EnablePickup(float dealy)
     {
-        yield return new WaitForSeconds(delay);
+        yield return new WaitForSeconds(dealy);
         GetComponent<Collider>().enabled = true;
     }
-    
-    }
+}

@@ -16,14 +16,10 @@ public class ItemUI : MonoBehaviour
         image.sprite = item.icon;
         transform.localScale = Vector3.one;
         button.onClick.AddListener(() => removeItemAction.Invoke(inventoryId));
-
-
     }
+
     void OnDestroy()
     {
         button.onClick.RemoveAllListeners();
     }
-
-
 }
-
