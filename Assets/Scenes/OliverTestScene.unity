@@ -1781,7 +1781,7 @@ Transform:
   m_GameObject: {fileID: 170754193}
   serializedVersion: 2
   m_LocalRotation: {x: -0, y: 0.70200074, z: -0, w: 0.71217626}
-  m_LocalPosition: {x: -23.663, y: 0.785, z: 61.51}
+  m_LocalPosition: {x: -31.42, y: 0.785, z: 29.3}
   m_LocalScale: {x: 0.3, y: 0.3, z: 0.3}
   m_ConstrainProportionsScale: 1
   m_Children:
@@ -6289,8 +6289,43 @@ BoxCollider:
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 3
-  m_Size: {x: 11.375072, y: 3.5, z: 1.5917946}
-  m_Center: {x: 0.12561418, y: 0.00000029802322, z: -0.059011348}
+  m_Size: {x: 11.375071, y: 3.5, z: 1.5845475}
+  m_Center: {x: 0.12561437, y: 0.00000023841858, z: -0.055388015}
+--- !u!65 &521557509
+BoxCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521557501}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 1
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Size: {x: 11.375071, y: 3, z: 11.555198}
+  m_Center: {x: 0.12561576, y: 0.00000023841858, z: -5.8913994}
+--- !u!114 &521557510
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 521557501}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: ee7e48b37d539364ab84861f749e7773, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::RotatingWall
+  openAngle: 90
+  speed: 2
 --- !u!1 &522306570 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: -8142008379949392814, guid: 1e33575a3b274264291da169305f63f3, type: 3}
@@ -15062,6 +15097,12 @@ PrefabInstance:
     - targetCorrespondingSourceObject: {fileID: -1807970279642858887, guid: 1e33575a3b274264291da169305f63f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 521557505}
+    - targetCorrespondingSourceObject: {fileID: -1807970279642858887, guid: 1e33575a3b274264291da169305f63f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 521557510}
+    - targetCorrespondingSourceObject: {fileID: -1807970279642858887, guid: 1e33575a3b274264291da169305f63f3, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 521557509}
     - targetCorrespondingSourceObject: {fileID: 5335601853256353763, guid: 1e33575a3b274264291da169305f63f3, type: 3}
       insertIndex: -1
       addedObject: {fileID: 1594036969}
@@ -16507,12 +16548,15 @@ PrefabInstance:
       objectReference: {fileID: 2100000, guid: 92ca272e65770f843b40c7272fbfb472, type: 2}
     - target: {fileID: 919132149155446097, guid: cb4c95d922c61f14a8064cbad2efdf69, type: 3}
       propertyPath: m_Name
-      value: "k\xE4\xE4rme"
+      value: Player
       objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
-    m_AddedComponents: []
+    m_AddedComponents:
+    - targetCorrespondingSourceObject: {fileID: 919132149155446097, guid: cb4c95d922c61f14a8064cbad2efdf69, type: 3}
+      insertIndex: -1
+      addedObject: {fileID: 1335425419}
   m_SourcePrefab: {fileID: 100100000, guid: cb4c95d922c61f14a8064cbad2efdf69, type: 3}
 --- !u!1 &779922687 stripped
 GameObject:
@@ -21951,6 +21995,23 @@ BoxCollider:
   serializedVersion: 3
   m_Size: {x: 13.183774, y: 3.5, z: 2.6834238}
   m_Center: {x: 5.2501454, y: 0.021912575, z: 0.000015258789}
+--- !u!1 &1335425415 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 919132149155446097, guid: cb4c95d922c61f14a8064cbad2efdf69, type: 3}
+  m_PrefabInstance: {fileID: 778389681}
+  m_PrefabAsset: {fileID: 0}
+--- !u!114 &1335425419
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 1335425415}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 37eb8d7d5f80461479ae616cb54e7ced, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::EnemyRNGMOvement3D
 --- !u!1 &1336088680 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5232257686583486352, guid: 1e33575a3b274264291da169305f63f3, type: 3}
