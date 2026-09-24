@@ -1,26 +1,48 @@
 using UnityEngine;
 
-
-public class DoorOpener : MonoBehaviour
+public class RotatingWall : MonoBehaviour
 {
-    private Animator doorAnimator;
+    [Header("Rotation Settings")]
+    public float openAngle = 90f; // Degrees to rotate
+    public float speed = 2f;      // Rotation speed
+
+    private Quaternion closedRotation;
+    private Quaternion openRotation;
+    private bool isOpening = false;
 
     void Start()
     {
-        // Get the Animator component attached to the same GameObject as this script
-        doorAnimator = GetComponent<Animator>();
+        closedRotation = transform.rotation;
+        // Calculate target rotation around the Y axis
+        openRotation = Quaternion.Euler(transform.eulerAngles.x, transform.eulerAngles.y + openAngle, transform.eulerAngles.z);
+    }
+
+    void Update()
+    {
+        // Smoothly rotate toward the target
+        if (isOpening)
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, openRotation, speed * Time.deltaTime);
+        }
+        else
+        {
+            transform.rotation = Quaternion.Slerp(transform.rotation, closedRotation, speed * Time.deltaTime);
+        }
     }
 
     private void OnTriggerEnter(Collider other)
     {
-        // Check if the object entering the trigger is the player (or another specified object)
-        if (other.CompareTag("Player")) // Make sure the player GameObject has the tag "Player"
+        if (other.CompareTag("Player"))
         {
-            if (doorAnimator != null)
-            {
-                // Trigger the Door_Open animation
-                doorAnimator.SetTrigger("Door_Open");
-            }
+            isOpening = true;
         }
     }
-}
+
+    private void OnTriggerExit(Collider other)
+    {
+        if (other.CompareTag("Player"))
+        {
+            isOpening = false;
+        }
+    }
+}
