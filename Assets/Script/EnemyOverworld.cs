@@ -108,12 +108,18 @@ public class EnemyAI3D : MonoBehaviour
     void RotateTowards(Vector3 target)
     {
         Vector3 direction = (target - transform.position).normalized;
+
         if (direction != Vector3.zero)
         {
             Quaternion targetRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
+
+            // ADD AN OFFSET HERE: Change '90f' to 180f or -90f if it's facing the wrong way
+            Quaternion offsetRotation = Quaternion.Euler(-90, 90, -90);
+
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * offsetRotation, Time.deltaTime * 10f);
         }
     }
+
 
     void GetNewRandomPosition()
     {
