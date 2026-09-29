@@ -134,7 +134,7 @@ public class EnemyAI3D : MonoBehaviour
         // Draw the yellow walk zone bounds
         Gizmos.color = Color.yellow;
         Vector3 center = Application.isPlaying ? startPosition : transform.position;
-        Gizmos.DrawWireCube(center, new Vector3(walkRange * 2, 0.5f, walkRange * 2));
+        Gizmos.DrawWireCube(center, new Vector3(walkRange * 1.75f, 0.5f, walkRange * 1.75f));
 
         // Draw the red vision detection radius
         Gizmos.color = Color.red;
