@@ -10,9 +10,9 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: b110faf61c226704aa6a7e9ca8a80bcd, type: 3}
-  m_Name: Crowbar
+  m_Name: Key
   m_EditorClassIdentifier: Assembly-CSharp::Item
-  id: 
-  description: 
-  icon: {fileID: 0}
-  prefab: {fileID: 0}
+  id: Key
+  description: R K
+  icon: {fileID: 10901, guid: 0000000000000000f000000000000000, type: 0}
+  prefab: {fileID: 919132149155446097, guid: ec794b44799ba8e4e8de1afc641a53a6, type: 3}

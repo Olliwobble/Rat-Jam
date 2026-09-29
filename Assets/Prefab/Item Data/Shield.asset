@@ -14,5 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Item
   id: Shild
   description: R S
-  icon: {fileID: 21300000, guid: 62b6442fdcc207e40be1c57c1ab175e4, type: 3}
+  icon: {fileID: 21300000, guid: dc12e03fceaf1334a9e145daf8b7879a, type: 3}
   prefab: {fileID: 919132149155446097, guid: 7a7c7d1d76886aa4f8889241dba49a4b, type: 3}
