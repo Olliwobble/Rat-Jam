@@ -1,29 +1,90 @@
 using UnityEngine;
 
-public class EnemyRNGMovement3D : MonoBehaviour
+public class EnemyAI3D : MonoBehaviour
 {
-    [Header("Movement Settings")]
-    public float moveSpeed = 3f;
-    public float walkRange = 5f;     // How far the enemy can walk from its starting point
-    public float idleTime = 1.5f;    // How long the enemy waits before moving again
+    [Header("Movement & Patrolling")]
+    public float patrolSpeed = 2.5f;
+    public float walkRange = 5f;
+    public float idleTime = 1.5f;
+
+    [Header("Chase Settings")]
+    public float chaseSpeed = 4.5f;
+    public float detectionRadius = 6f; // How close the player needs to be to start a chase
 
     private Vector3 startPosition;
     private Vector3 targetPosition;
     private float timer;
     private bool isWaiting = false;
+    private Transform playerTransform;
+    private bool isChasing = false;
 
     void Start()
     {
-        // Store the original position to keep the enemy in a specific zone
         startPosition = transform.position;
+
+        // Find the player automatically using their tag
+        GameObject player = GameObject.FindGameObjectWithTag("Player");
+        if (player != null)
+        {
+            playerTransform = player.transform;
+        }
+
         GetNewRandomPosition();
     }
 
     void Update()
     {
+        // 1. Check for the player
+        CheckForPlayer();
+
+        // 2. Handle State Behavior
+        if (isChasing && playerTransform != null)
+        {
+            ChasePlayer();
+        }
+        else
+        {
+            PatrolRoutine();
+        }
+    }
+
+    void CheckForPlayer()
+    {
+        if (playerTransform == null) return;
+
+        // Calculate distance between enemy and player
+        float distanceToPlayer = Vector3.Distance(transform.position, playerTransform.position);
+
+        if (distanceToPlayer <= detectionRadius)
+        {
+            isChasing = true;
+        }
+        else
+        {
+            // If we were chasing and the player got away, resume patrolling
+            if (isChasing)
+            {
+                isChasing = false;
+                startPosition = transform.position; // Reset patrol hub to current spot
+                GetNewRandomPosition();
+            }
+        }
+    }
+
+    void ChasePlayer()
+    {
+        // Move towards player position
+        Vector3 target = new Vector3(playerTransform.position.x, transform.position.y, playerTransform.position.z);
+        transform.position = Vector3.MoveTowards(transform.position, target, chaseSpeed * Time.deltaTime);
+
+        // Turn to look at player
+        RotateTowards(target);
+    }
+
+    void PatrolRoutine()
+    {
         if (isWaiting)
         {
-            // Count down the idle timer
             timer -= Time.deltaTime;
             if (timer <= 0)
             {
@@ -33,47 +94,44 @@ public class EnemyRNGMovement3D : MonoBehaviour
         }
         else
         {
-            // Move toward the random target position
-            transform.position = Vector3.MoveTowards(transform.position, targetPosition, moveSpeed * Time.deltaTime);
+            transform.position = Vector3.MoveTowards(transform.position, targetPosition, patrolSpeed * Time.deltaTime);
+            RotateTowards(targetPosition);
 
-            // Rotate smoothly to face the moving direction (Optional)
-            Vector3 direction = (targetPosition - transform.position).normalized;
-            if (direction != Vector3.zero)
-            {
-                Quaternion targetRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
-                transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
-            }
-
-            // Check if the enemy reached the target
             if (Vector3.Distance(transform.position, targetPosition) < 0.1f)
             {
-                StartWaiting();
+                isWaiting = true;
+                timer = idleTime;
             }
+        }
+    }
+
+    void RotateTowards(Vector3 target)
+    {
+        Vector3 direction = (target - transform.position).normalized;
+        if (direction != Vector3.zero)
+        {
+            Quaternion targetRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
+            transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation, Time.deltaTime * 10f);
         }
     }
 
     void GetNewRandomPosition()
     {
-        // Pick a random X and Z coordinate within the walk range
         float randomX = Random.Range(-walkRange, walkRange);
         float randomZ = Random.Range(-walkRange, walkRange);
-
-        // Calculate target relative to the start position
         targetPosition = new Vector3(startPosition.x + randomX, transform.position.y, startPosition.z + randomZ);
     }
 
-    void StartWaiting()
-    {
-        isWaiting = true;
-        timer = idleTime;
-    }
-
-    // Visualizes the wander zone in the Unity Editor Scene view
+    // Draw visualization wireframes in the Scene view
     private void OnDrawGizmosSelected()
     {
+        // Draw the yellow walk zone bounds
         Gizmos.color = Color.yellow;
         Vector3 center = Application.isPlaying ? startPosition : transform.position;
         Gizmos.DrawWireCube(center, new Vector3(walkRange * 2, 0.5f, walkRange * 2));
+
+        // Draw the red vision detection radius
+        Gizmos.color = Color.red;
+        Gizmos.DrawWireSphere(transform.position, detectionRadius);
     }
 }
-
