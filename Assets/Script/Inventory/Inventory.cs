@@ -1,9 +1,7 @@
 using System;
 using System.Collections.Generic;
-using Unity.VisualScripting;
 using UnityEngine;
 using UnityEngine.Rendering;
-using UnityEngine.UIElements;
 
 [RequireComponent(typeof(Collider))]
 public class Inventory : MonoBehaviour
@@ -28,7 +26,6 @@ public class Inventory : MonoBehaviour
     [SerializeField]
     SerializedDictionary<string, Item> inventory = new();
 
-
     public void OnTriggerEnter(Collider other)
     {
         if (other.CompareTag("DroppedItem"))
@@ -50,9 +47,7 @@ public class Inventory : MonoBehaviour
         var inventoryId = Guid.NewGuid().ToString();
         inventory.Add(inventoryId, item);
         ui.AddUIItem(inventoryId, item);
-
     }
-        
 
     public void DropItem(string inventoryId)
     {
@@ -64,7 +59,27 @@ public class Inventory : MonoBehaviour
         audioSource.PlayOneShot(dropItemAudio);
     }
 
+    public int maxInventorySpace = 3;
 
+    public List<Item> items = new List<Item>();
 
+    public bool AddItem1(Item item)
+    {
+        // Check if inventory is full
+        if (items.Count >= maxInventorySpace)
+        {
+            Debug.Log("Inventory is full!");
+            return false;
+        }
 
+        items.Add(item);
+        Debug.Log("Added " + item.name + " to inventory.");
+
+        return true;
+    }
+
+    public void RemoveItem(Item item)
+    {
+        items.Remove(item);
+    }
 }
