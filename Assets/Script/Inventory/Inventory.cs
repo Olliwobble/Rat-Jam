@@ -58,4 +58,28 @@ public class Inventory : MonoBehaviour
         ui.RemoveUIItem(inventoryId);
         audioSource.PlayOneShot(dropItemAudio);
     }
+
+    public int maxInventorySpace = 3;
+
+    public List<Item> items = new List<Item>();
+
+    public bool AddItem1(Item item)
+    {
+        // Check if inventory is full
+        if (items.Count >= maxInventorySpace)
+        {
+            Debug.Log("Inventory is full!");
+            return false;
+        }
+
+        items.Add(item);
+        Debug.Log("Added " + item.name + " to inventory.");
+
+        return true;
+    }
+
+    public void RemoveItem(Item item)
+    {
+        items.Remove(item);
+    }
 }
