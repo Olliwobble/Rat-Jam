@@ -1,6 +1,6 @@
 using UnityEngine;
 
-public class EnemyAI3D : MonoBehaviour
+public class EnemyAI3DSecond : MonoBehaviour
 {
     [Header("Movement & Patrolling")]
     public float patrolSpeed = 2.5f;
@@ -10,6 +10,12 @@ public class EnemyAI3D : MonoBehaviour
     [Header("Chase Settings")]
     public float chaseSpeed = 4.5f;
     public float detectionRadius = 6f; // How close the player needs to be to start a chase
+
+    [Header("Rotation Offset Settings")]
+    [Tooltip("Adjust these sliders if your second enemy asset faces the wrong direction.")]
+    public float offsetX = 0f;
+    public float offsetY = 0f;
+    public float offsetZ = 0f;
 
     private Vector3 startPosition;
     private Vector3 targetPosition;
@@ -114,7 +120,7 @@ public class EnemyAI3D : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 
             // ADD AN OFFSET HERE: Change '90f' to 180f or -90f if it's facing the wrong way
-            Quaternion offsetRotation = Quaternion.Euler(-90, 90, -90);
+            Quaternion offsetRotation = Quaternion.Euler(0, 270, 0);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * offsetRotation, Time.deltaTime * 10f);
         }
