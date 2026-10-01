@@ -1776,6 +1776,7 @@ GameObject:
   - component: {fileID: 170754199}
   - component: {fileID: 170754200}
   - component: {fileID: 170754201}
+  - component: {fileID: 170754202}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -1944,6 +1945,26 @@ MonoBehaviour:
     m_Values: []
   maxInventorySpace: 3
   items: []
+--- !u!114 &170754202
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 170754193}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 72e31841c69228d4695f07212f9e6d16, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::PlayerUnit
+  unitName: Rat
+  unitLevel: 1
+  damage: 3
+  simpleSword: 30
+  coolSword: 60
+  shield: 1
+  maxHP: 50
+  currentHP: 50
 --- !u!1 &172328927 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 6435619428871872783, guid: 4642afe7fe7b9e04dbe9c75a24fb5b9d, type: 3}
@@ -4206,6 +4227,7 @@ GameObject:
   - component: {fileID: 195452137}
   - component: {fileID: 195452136}
   - component: {fileID: 195452135}
+  - component: {fileID: 195452139}
   m_Layer: 5
   m_Name: Canvas
   m_TagString: Untagged
@@ -4298,6 +4320,19 @@ RectTransform:
   m_AnchoredPosition: {x: 0, y: 0}
   m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: 0, y: 0}
+--- !u!114 &195452139
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 195452134}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb5e9d2550f607a418156f5519c7fa46, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: Assembly-CSharp::CombatMenu
+  combatMenuUI: {fileID: 1115416557}
 --- !u!1 &201264769 stripped
 GameObject:
   m_CorrespondingSourceObject: {fileID: 5232257686583486352, guid: 4642afe7fe7b9e04dbe9c75a24fb5b9d, type: 3}
@@ -16074,7 +16109,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1115416558
 RectTransform:
   m_ObjectHideFlags: 0
