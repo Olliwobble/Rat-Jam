@@ -120,7 +120,7 @@ public class EnemyAI3DSecond : MonoBehaviour
             Quaternion targetRotation = Quaternion.LookRotation(new Vector3(direction.x, 0, direction.z));
 
             // ADD AN OFFSET HERE: Change '90f' to 180f or -90f if it's facing the wrong way
-            Quaternion offsetRotation = Quaternion.Euler(0, 270, 0);
+            Quaternion offsetRotation = Quaternion.Euler(-90, 0, 270);
 
             transform.rotation = Quaternion.Slerp(transform.rotation, targetRotation * offsetRotation, Time.deltaTime * 10f);
         }
