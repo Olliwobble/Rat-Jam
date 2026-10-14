@@ -44,6 +44,9 @@ public class BattleSystem : MonoBehaviour
     IEnumerator PlayerAttack()
     {
         bool isDead = enemyUnit.TakeDamage(playerUnit.damage);
+
+        enemyHUD.SetHP(enemyUnit.currentHP);
+        dialogText.text = "The attack is succesful!";
          
         yield return new WaitForSeconds(2f);
 
@@ -54,10 +57,32 @@ public class BattleSystem : MonoBehaviour
         } else
         {
             state = BattleState.ENEMYTURN;
+            StartCoroutine(EnemyTurn());
             
         }
 
     }
+
+    IEnumerator EnemyTurn()
+    {
+        dialogText.text = enemyUnit.unitName + " attaks!";
+        yield return new WaitForSeconds(1f);
+        bool isDead = playerUnit.TakeDamage(enemyUnit.damage);
+        //playerHUD.SetHP(playerHUD.currentHP);
+        yield return new WaitForSeconds(1f);
+
+        if(isDead)
+        {
+            state = BattleState.LOST;
+            EndBattle();
+        } else
+        {
+            state = BattleState.PLAYERTURN;
+            PlayerTurn();
+        }
+
+    }
+
     void EndBattle()
     {
         if(state == BattleState.WON)
