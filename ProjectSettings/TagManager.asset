@@ -6,6 +6,8 @@ TagManager:
   tags:
   - Ground
   - DroppedItem
+  - Trigger
+  - Enemy
   layers:
   - Default
   - TransparentFX

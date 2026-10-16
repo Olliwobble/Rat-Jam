@@ -21,7 +21,7 @@ public class TriggerEvent : MonoBehaviour
 
     public void OnTriggerEnter(Collider other)
     {
-        if (gameObject.CompareTag("Trigger"))
+        if (gameObject.CompareTag("Enemy"))
 
             bottleFight.gameObject.SetActive(true);
         uEvent.Invoke();
